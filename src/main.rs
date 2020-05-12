@@ -10,30 +10,36 @@ macro_rules! rng {
     };
 }
 
-const WIDTH: u32 = 2000;
-const HEIGHT: u32 = 2000;
+const WIDTH: u32 = 2000;  // x 
+const HEIGHT: u32 = 2000; // y
 
 fn main() {
     let mut image = ImageBuffer::new(WIDTH, HEIGHT);
 
-    for y in 0..(WIDTH / 2) {
+    // horizontal lines
+    for y in 0..(HEIGHT / 2) {
         let color = generate_random_color();
-        for x in 0..(HEIGHT / 2) {
+        for x in 0..(WIDTH / 2) {
             image.put_pixel(x, y, Rgb([color.0, color.1, color.2]))
         }
+    }
+    for y in (HEIGHT / 2)..HEIGHT{
         let color = generate_random_color();
-        for x in (HEIGHT / 2)..HEIGHT {
+        for x in (WIDTH / 2)..WIDTH {
             image.put_pixel(x, y, Rgb([color.0, color.1, color.2]))
         }
     }
 
-    for y in (WIDTH / 2)..WIDTH {
+    // vertical lines
+    for x in 0..(WIDTH / 2) {
         let color = generate_random_color();
-        for x in 0..(HEIGHT / 2) {
+        for y in (HEIGHT / 2)..HEIGHT {
             image.put_pixel(x, y, Rgb([color.0, color.1, color.2]))
         }
+    }
+    for x in (WIDTH / 2)..WIDTH {
         let color = generate_random_color();
-        for x in (HEIGHT / 2)..HEIGHT {
+        for y in 0..(HEIGHT / 2) {
             image.put_pixel(x, y, Rgb([color.0, color.1, color.2]))
         }
     }
