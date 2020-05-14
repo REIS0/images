@@ -1,5 +1,5 @@
 use gif::Frame;
-use image::{RgbImage, imageops};
+use image::{imageops, RgbImage};
 use rand::Rng;
 // local import
 use crate::bsc::generate_random_color;
@@ -16,13 +16,17 @@ fn random_shape(image: &mut RgbImage) {
     let mut rng = rand::thread_rng();
     let image_width = image.dimensions().0;
     let image_height = image.dimensions().1;
-    let new_shape = draw_shape(rng.gen_range(1, image_width),
-                                                        rng.gen_range(1, image_height));
+    let new_shape = draw_shape(
+        rng.gen_range(1, image_width),
+        rng.gen_range(1, image_height),
+    );
     // image operations
-    imageops::overlay(image,
-                     &new_shape,
-                     rng.gen_range(0, image_width), 
-                     rng.gen_range(0, image_height));                 
+    imageops::overlay(
+        image,
+        &new_shape,
+        rng.gen_range(0, image_width),
+        rng.gen_range(0, image_height),
+    );
 }
 
 pub fn animation_frames<'a>(width: u32, height: u32, n_frames: i32) -> Vec<Frame<'static>> {

@@ -1,5 +1,5 @@
 use gif::Frame;
-use image::{RgbImage, Rgb};
+use image::{Rgb, RgbImage};
 // local import
 use crate::bsc::generate_random_color;
 
