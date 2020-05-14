@@ -1,2 +1,2 @@
 pub mod hori_vert_lines;
-pub mod random_squares;
+pub mod random_shapes;
