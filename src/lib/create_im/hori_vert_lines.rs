@@ -1,12 +1,12 @@
 use gif::Frame;
-use image::{ImageBuffer, Rgb};
-
+use image::{RgbImage, Rgb};
+// local import
 use crate::bsc::generate_random_color;
 
 // TODO: function to return image buffer
 fn image_vec(width: u32, height: u32) -> Vec<u8> {
     // CREATE IMAGE
-    let mut image = ImageBuffer::new(width, height);
+    let mut image = RgbImage::new(width, height);
     // horizontal lines
     for y in 0..(height / 2) {
         let color = generate_random_color();
