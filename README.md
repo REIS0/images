@@ -1,6 +1,6 @@
 # IMAGES
 
-Simple repository for my experiments in creating images with rust.
+Simple repository for my experiments in creating gif animations with rust.
 
 ![Example](examples/exemplo.gif)
 
