@@ -1,5 +1,5 @@
 use gif::Frame;
-use image::{imageops, RgbImage, Rgb};
+use image::{RgbImage, Rgb};
 use rand::Rng;
 // local import
 use crate::bsc::generate_random_color;
@@ -19,11 +19,7 @@ fn random_shape(image: &mut RgbImage) {
     // draw the new shape
     for x in shape_coord_x_begin..shape_coord_x_end {
         for y in shape_coord_y_begin..shape_coord_y_end {
-            image.put_pixel(
-                x,
-                y,
-                Rgb(shape_color)
-            )
+            image.put_pixel(x, y, Rgb(shape_color));
         }
     }
 }
@@ -32,9 +28,8 @@ pub fn animation_frames<'a>(width: u32, height: u32, n_frames: i32) -> Vec<Frame
     let mut frames: Vec<Frame> = Vec::new();
     let mut image = RgbImage::new(width, height);
     // OPERATION
-    for _i in 0..n_frames {
-        // TODO: checar essa logica
-        // TODO: debug
+    for _i in 1..n_frames {
+        // TODO: checar por que esta desenhando metade do numero de frames
         let mut image_clone = image.clone();
         random_shape(&mut image_clone);
         // makes 'image' variable be the new rgbimage
