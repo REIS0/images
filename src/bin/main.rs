@@ -17,7 +17,7 @@ fn main() {
     let n_frames: i32 = n_frames.trim().parse().expect("Insert a valid integer value.");
 
     println!("Creating frames...");
-    let frames = create_im::hori_vert_lines::animation_frames(WIDTH, HEIGHT, n_frames);
+    let frames = create_im::random_shapes::animation_frames(WIDTH, HEIGHT, n_frames);
 
     println!("Creating gif...");
     create_gif(WIDTH as u16, HEIGHT as u16, frames,"teste");
