@@ -10,7 +10,6 @@ fn random_shape(image: &mut RgbImage) {
     let image_height = image.dimensions().1;
     // DRAW shape
     // generate random image coordinates
-    // TODO: set a minimum visible shape size
     let shape_coord_x_begin = rng.gen_range(0, image_width);
     let shape_coord_x_end = rng.gen_range(shape_coord_x_begin, image_width);
     let shape_coord_y_begin = rng.gen_range(0, image_height);
@@ -30,7 +29,6 @@ pub fn animation_frames<'a>(width: u32, height: u32, n_frames: i32) -> Vec<Frame
     let mut image = RgbImage::new(width, height);
     // OPERATION
     for _i in 1..n_frames {
-        // TODO: checar por que esta desenhando metade do numero de frames
         let mut image_clone = image.clone();
         random_shape(&mut image_clone);
         // makes 'image' variable be the new rgbimage
