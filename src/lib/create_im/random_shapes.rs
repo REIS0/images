@@ -10,10 +10,11 @@ fn random_shape(image: &mut RgbImage) {
     let image_height = image.dimensions().1;
     // DRAW shape
     // generate random image coordinates
+    // TODO: set a minimum visible shape size
     let shape_coord_x_begin = rng.gen_range(0, image_width);
-    let shape_coord_x_end = rng.gen_range(0, image_width);
+    let shape_coord_x_end = rng.gen_range(shape_coord_x_begin, image_width);
     let shape_coord_y_begin = rng.gen_range(0, image_height);
-    let shape_coord_y_end = rng.gen_range(0, image_height);
+    let shape_coord_y_end = rng.gen_range(shape_coord_y_begin, image_height);
     // generate shape color
     let shape_color = generate_random_color();
     // draw the new shape
