@@ -1,5 +1,5 @@
 use gif::Frame;
-use image::{RgbImage, Rgb};
+use image::{Rgb, RgbImage};
 // local import
 use crate::bsc::generate_random_color;
 
@@ -11,26 +11,26 @@ fn image_vec(width: u32, height: u32) -> Vec<u8> {
     for y in 0..(height / 2) {
         let color = generate_random_color();
         for x in 0..(width / 2) {
-            image.put_pixel(x, y, Rgb([color.0, color.1, color.2]))
+            image.put_pixel(x, y, Rgb(color));
         }
     }
     for y in (height / 2)..height {
         let color = generate_random_color();
         for x in (width / 2)..width {
-            image.put_pixel(x, y, Rgb([color.0, color.1, color.2]))
+            image.put_pixel(x, y, Rgb(color));
         }
     }
     // vertical lines
     for x in 0..(width / 2) {
         let color = generate_random_color();
         for y in (height / 2)..height {
-            image.put_pixel(x, y, Rgb([color.0, color.1, color.2]))
+            image.put_pixel(x, y, Rgb(color));
         }
     }
     for x in (width / 2)..width {
         let color = generate_random_color();
         for y in 0..(height / 2) {
-            image.put_pixel(x, y, Rgb([color.0, color.1, color.2]))
+            image.put_pixel(x, y, Rgb(color));
         }
     }
     return image.into_vec();
