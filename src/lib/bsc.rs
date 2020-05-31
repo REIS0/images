@@ -13,7 +13,7 @@ pub fn generate_random_color() -> [u8; 3] {
     let red: u8 = rng!();
     let green: u8 = rng!();
     let blue: u8 = rng!();
-    return [red, green, blue];
+    [red, green, blue]
 }
 
 // create the gif animation

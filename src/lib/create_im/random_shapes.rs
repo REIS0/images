@@ -37,5 +37,5 @@ pub fn animation_frames<'a>(width: u32, height: u32, n_frames: i32) -> Vec<Frame
         let frame = Frame::from_rgb(width as u16, height as u16, &image_clone.into_vec());
         frames.push(frame);
     }
-    return frames;
+    frames
 }

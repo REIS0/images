@@ -33,17 +33,17 @@ fn image_vec(width: u32, height: u32) -> Vec<u8> {
             image.put_pixel(x, y, Rgb(color));
         }
     }
-    return image.into_vec();
+    image.into_vec()
 }
 
 pub fn animation_frames<'a>(width: u32, height: u32, n_frames: i32) -> Vec<Frame<'static>> {
     let mut frames: Vec<Frame> = Vec::new();
-    let image_vec = image_vec(width, height);
     // TODO: otimizar e talvez paralelizar
     for _i in 0..n_frames {
+        let image_vec = image_vec(width, height);
         // CREATE FRAME
         let frame = Frame::from_rgb(width as u16, height as u16, &image_vec);
         frames.push(frame);
     }
-    return frames;
+    frames
 }
