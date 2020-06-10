@@ -1,5 +1,7 @@
 # IMAGES
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8490a2c1cd9436dae6cc5b0874a89fc)](https://app.codacy.com/manual/REIS0/images?utm_source=github.com&utm_medium=referral&utm_content=REIS0/images&utm_campaign=Badge_Grade_Dashboard)
+
 Simple repository for my experiments in creating gif animations with rust.
 
 ![Example](examples/exemplo.gif)
