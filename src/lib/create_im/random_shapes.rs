@@ -43,6 +43,13 @@ impl RandomShapesImage {
 impl GifAnimation for RandomShapesImage {
     fn animation_frames<'a>(&mut self) -> Vec<Frame<'static>> {
         let mut frames: Vec<Frame> = Vec::new();
+        // first frame with no shapes
+        let frame = Frame::from_rgb(
+            self.width as u16,
+            self.height as u16,
+            &self.rgb_image.clone().into_vec(),
+        );
+        frames.push(frame);
         // OPERATION
         for _i in 0..self.n_frames {
             self.random_shape();
@@ -60,7 +67,7 @@ impl GifAnimation for RandomShapesImage {
 
     fn create_gif(&mut self, nome: &str) {
         let frames = self.animation_frames();
-        let mut animation = File::create(nome.to_owned() + ".gif").unwrap();
+        let mut animation = File::create(nome).unwrap();
         let mut encoder = Encoder::new(
             &mut animation,
             self.width as u16,
@@ -70,6 +77,9 @@ impl GifAnimation for RandomShapesImage {
         .unwrap();
         encoder.set(Repeat::Infinite).unwrap();
         // TODO: map filter
-        frames.iter().map(|f| encoder.write_frame(&f).unwrap());
+        // ! not working
+        for frame in frames {
+            encoder.write_frame(&frame).ok();
+        }
     }
 }
