@@ -77,7 +77,6 @@ impl GifAnimation for RandomShapesImage {
         .unwrap();
         encoder.set(Repeat::Infinite).unwrap();
         // TODO: map filter
-        // ! not working
         for frame in frames {
             encoder.write_frame(&frame).ok();
         }
