@@ -33,6 +33,7 @@ impl RandomShapesImage {
         let shape_color = generate_random_color();
         // draw the new shape
         for x in shape_coord_x_begin..shape_coord_x_end {
+            // TODO: parallel loop
             for y in shape_coord_y_begin..shape_coord_y_end {
                 self.rgb_image.put_pixel(x, y, Rgb(shape_color));
             }

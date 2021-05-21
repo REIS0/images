@@ -27,12 +27,14 @@ impl HoriVertLines {
         // horizontal lines
         for y in 0..(self.height / 2) {
             let color = generate_random_color();
+            // TODO: parallel loop
             for x in 0..(self.width / 2) {
                 self.rgb_image.put_pixel(x, y, Rgb(color));
             }
         }
         for y in (self.height / 2)..self.height {
             let color = generate_random_color();
+            // TODO: parallel loop
             for x in (self.width / 2)..self.width {
                 self.rgb_image.put_pixel(x, y, Rgb(color));
             }
@@ -40,12 +42,14 @@ impl HoriVertLines {
         // vertical lines
         for x in 0..(self.width / 2) {
             let color = generate_random_color();
+            // TODO: parallel loop
             for y in (self.height / 2)..self.height {
                 self.rgb_image.put_pixel(x, y, Rgb(color));
             }
         }
         for x in (self.width / 2)..self.width {
             let color = generate_random_color();
+            // TODO: parallel loop
             for y in 0..(self.height / 2) {
                 self.rgb_image.put_pixel(x, y, Rgb(color));
             }
